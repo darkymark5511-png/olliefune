@@ -20,9 +20,9 @@ export interface FuneSettings {
 
 export const DEFAULT_SETTINGS: FuneSettings = {
   lockWallpaper:
-    "linear-gradient(160deg,#0f172a 0%,#1e3a5f 40%,#0c4a6e 70%,#020617 100%)",
+    "linear-gradient(165deg, #0f172a 0%, #1e1b4b 35%, #4c1d95 65%, #0c4a6e 100%)",
   homeWallpaper:
-    "linear-gradient(165deg,#0b1220 0%,#172554 45%,#0f172a 100%)",
+    "linear-gradient(160deg, #020617 0%, #172554 40%, #312e81 75%, #0f172a 100%)",
   deviceName: "Fune",
   carrier: "OllieNet",
   passcodeHint: "any 4+ digits",
