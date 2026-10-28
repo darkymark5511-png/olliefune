@@ -44,10 +44,10 @@ export default function PhoneShell() {
   }
 
   return (
-    <div className="flex min-h-dvh flex-col items-center justify-center gap-4 p-3">
-      <p className="text-[11px] tracking-[0.2em] text-white/30">OLLIEFUNE</p>
+    <div className="phone-stage flex min-h-dvh flex-col items-center justify-center gap-5 p-3">
+      <p className="text-[11px] font-semibold tracking-[0.28em] text-white/25">OLLIEFUNE</p>
       <div className="phone-frame">
-        <div className="phone-notch" />
+        <div className="phone-island" />
         <div className="phone-screen">
           {phase === "boot" && <BootScreen onDone={finishBoot} />}
           {phase === "lock" && (
@@ -65,30 +65,23 @@ export default function PhoneShell() {
               onOpen={openApp}
             />
           )}
-          {phase === "app" && app === "calculator" && (
-            <Calculator onClose={closeApp} />
-          )}
-          {phase === "app" && app === "game" && (
-            <ClimbGame onClose={closeApp} />
-          )}
-          {phase === "app" && app === "messages" && (
-            <Messages onClose={closeApp} />
-          )}
-          {phase === "app" && app === "cctv" && <CCTV onClose={closeApp} />}
-          {phase === "app" && app === "notes" && <Notes onClose={closeApp} />}
-          {phase === "app" && app === "phone-in-phone" && (
-            <NestedPhone onClose={closeApp} />
-          )}
-          {phase === "app" && app === "settings" && (
-            <AdminSettings
-              onClose={closeApp}
-              onSettings={(s) => setSettings(s)}
-            />
+          {phase === "app" && app && (
+            <div className="app-layer absolute inset-0 z-30">
+              {app === "calculator" && <Calculator onClose={closeApp} />}
+              {app === "game" && <ClimbGame onClose={closeApp} />}
+              {app === "messages" && <Messages onClose={closeApp} />}
+              {app === "cctv" && <CCTV onClose={closeApp} />}
+              {app === "notes" && <Notes onClose={closeApp} />}
+              {app === "phone-in-phone" && <NestedPhone onClose={closeApp} />}
+              {app === "settings" && (
+                <AdminSettings onClose={closeApp} onSettings={(s) => setSettings(s)} />
+              )}
+            </div>
           )}
         </div>
       </div>
-      <p className="max-w-xs text-center text-[10px] text-white/25">
-        Fake phone · fun + dread · {settings.deviceName}
+      <p className="max-w-[280px] text-center text-[10px] leading-relaxed text-white/20">
+        Fake phone · liquid glass · {settings.deviceName}
       </p>
     </div>
   );
